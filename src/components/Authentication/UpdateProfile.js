@@ -2,8 +2,8 @@ import React, { useRef, useState } from 'react';
 import { Form, Button, Card, Alert } from 'react-bootstrap';
 import { Link, useHistory } from 'react-router-dom';
 
-import Aux from '../hoc/Auxiliary/Auxiliary';
-import { useAuth } from '../Contexts/AuthContext';
+import { useAuth } from '../../Contexts/AuthContext';
+import CenteredContainer from './CenteredContainer';
 
 function UpdateProfile() {
   const emailRef = useRef();
@@ -34,7 +34,7 @@ function UpdateProfile() {
 
     Promise.all(promises)
       .then(() => {
-        history.push('/');
+        history.push('/user');
       })
       .catch(() => {
         setError('Failed to update account');
@@ -45,7 +45,7 @@ function UpdateProfile() {
   }
 
   return (
-    <Aux>
+    <CenteredContainer>
       <Card>
         <Card.Body>
           <h2 className='text-center mb-4'>Update Profile</h2>
@@ -82,9 +82,9 @@ function UpdateProfile() {
         </Card.Body>
       </Card>
       <div className='w-100 text-center mt-2'>
-        <Link to='/'>Cancel</Link>
+        <Link to='/user'>Cancel</Link>
       </div>
-    </Aux>
+    </CenteredContainer>
   );
 }
 
