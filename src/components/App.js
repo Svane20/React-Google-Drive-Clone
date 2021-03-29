@@ -3,11 +3,13 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 import { AuthProvider } from '../Contexts/AuthContext';
 import Signup from './Authentication/Signup';
-import Dashboard from './Authentication/Profile';
+import Profile from './Authentication/Profile';
 import Login from './Authentication/Login';
 import PrivateRoute from './Authentication/PrivateRoute';
 import ForgotPassword from './Authentication/ForgotPassword';
 import UpdateProfile from './Authentication/UpdateProfile';
+
+import Dashboard from '../components/google-drive/Dashboard';
 
 function App() {
   return (
@@ -15,12 +17,14 @@ function App() {
       <AuthProvider>
         <Switch>
           {/* Drive */}
+          <PrivateRoute exact path='/' component={Dashboard} />
+          <PrivateRoute exact path='/folder/:folderId' component={Dashboard} />
 
           {/* Profile */}
-          <PrivateRoute path='/user' component={Dashboard} />
+          <PrivateRoute path='/user' component={Profile} />
           <PrivateRoute path='/update-profile' component={UpdateProfile} />
 
-          {/* Authentication */}
+          {/* Auth */}
           <Route path='/signup' component={Signup} />
           <Route path='/login' component={Login} />
           <Route path='/forgot-password' component={ForgotPassword} />
