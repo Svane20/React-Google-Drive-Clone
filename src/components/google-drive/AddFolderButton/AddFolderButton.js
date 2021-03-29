@@ -3,9 +3,9 @@ import { Button, Modal, Form } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFolderPlus } from '@fortawesome/free-solid-svg-icons';
 
-import { database } from '../../firebase';
-import { useAuth } from '../../Contexts/AuthContext';
-import { ROOT_FOLDER } from '../../hooks/useFolder';
+import { database } from '../../../firebase';
+import { useAuth } from '../../../Contexts/AuthContext';
+import { ROOT_FOLDER } from '../../../hooks/useFolder';
 import './AddFolderButton.css';
 
 export default function AddFolderButton({ currentFolder }) {

@@ -4,10 +4,12 @@ import { useParams, useLocation } from 'react-router-dom';
 
 import Navbar from './Navbar';
 import Aux from '../../hoc/Auxiliary/Auxiliary';
-import AddFolderButton from './AddFolderButton';
+import AddFolderButton from './AddFolderButton/AddFolderButton';
+import AddFileButton from './AddFileButton/AddFileButton';
 import { useFolder } from '../../hooks/useFolder';
 import Folder from './Folder';
 import FolderBreadcrumbs from './FolderBreadcums';
+import File from './File';
 
 export default function Dashboard() {
   const { folderId } = useParams();
@@ -23,7 +25,7 @@ export default function Dashboard() {
       <Container fluid>
         <div className='d-flex align-items-center'>
           <FolderBreadcrumbs currentFolder={folder} />
-          {/* <AddFileButton currentFolder={folder} /> */}
+          <AddFileButton currentFolder={folder} />
           <AddFolderButton currentFolder={folder} />
         </div>
         {childFolders.length > 0 && (
@@ -48,7 +50,7 @@ export default function Dashboard() {
                 style={{ maxWidth: '250px' }}
                 className='p-2'
               >
-                {/* <File file={childFile} /> */}
+                <File file={childFile} />
               </div>
             ))}
           </div>
